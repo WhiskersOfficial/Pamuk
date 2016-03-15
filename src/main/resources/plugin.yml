@@ -1,4 +1,5 @@
 name: Pamuk
+description: Whiskers takiminin pluginlerine destek saglayan plugin.
+version: 1.0.0
 author: Whiskers
 main: org.whiskersofficial.pamuk.Pamuk
-description: Whiskers takiminin pluginlerine destek saglayan plugin.
