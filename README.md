@@ -1,2 +1,2 @@
 # Pamuk
-The base plugin for run whiskers.
+The base plugin to run whiskers.
