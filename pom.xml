@@ -7,7 +7,7 @@
   <version>1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>maventest</name>
+  <name>Pamuk</name>
   <url>http://maven.apache.org</url>
 
   <properties>
