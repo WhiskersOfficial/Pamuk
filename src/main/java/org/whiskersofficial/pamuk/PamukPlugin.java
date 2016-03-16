@@ -15,7 +15,7 @@ public class PamukPlugin extends JavaPlugin {
         api = new Pamuk(this);
         config = new Configuration(this, "config.yml", true);
 
-        Thread updaterThread = new Thread(new PamukUpdater());
+        Thread updaterThread = new Thread(new PamukUpdater(), "Pamuk-Updater");
         updaterThread.run();
     }
 

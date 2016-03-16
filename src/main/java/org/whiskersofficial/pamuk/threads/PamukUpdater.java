@@ -18,27 +18,7 @@ public class PamukUpdater implements Runnable {
         };
 
         for (String plugins : pluginsToUpdate) {
-            if (Bukkit.getPluginManager().getPlugin(plugins) == null) {
-               System.out.println("[Updater] Plugin " + plugins + " is not installed on this server. Updater will skip it.");
-            } else {
-                String releasesJSON = HTTPUtils.GETRequest("https://api.github.com/repos/" + repoOwner + "/" + plugins + "/releases");
 
-                Gson gson = new Gson();
-                JsonArray releases = gson.fromJson(releasesJSON, JsonArray.class);
-                Version latest = Version.valueOf(((JsonObject) releases.get(0)).get("tag_name").toString());
-                Version current = Version.valueOf(Bukkit.getPluginManager()
-                        .getPlugin(plugins)
-                        .getDescription()
-                        .getVersion());
-
-                if (latest.greaterThan(current)) {
-                    System.out.println("[Updater] Plugin " + plugins + " is out of date.");
-                    System.out.println("Latest: " + latest.toString());
-                    System.out.println("Current: " + current.toString());
-                } else {
-                    System.out.println("[Updater] Plugin " + plugins + " is up to date.");
-                }
-            }
         }
     }
 }

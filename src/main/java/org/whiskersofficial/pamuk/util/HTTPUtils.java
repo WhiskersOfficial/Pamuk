@@ -28,7 +28,6 @@ public class HTTPUtils {
                 rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             }
 
-
             String line;
             while ((line = rd.readLine()) != null) {
                 result.append(line);
