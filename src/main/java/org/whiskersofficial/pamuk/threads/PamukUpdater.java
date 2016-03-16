@@ -5,7 +5,7 @@ import org.whiskersofficial.pamuk.util.VersionUtil;
 public class PamukUpdater implements Runnable {
 
     public void run() {
-        System.out.println("[Pamuk Updater] Updater started...");
+        System.out.println("[Updater] Updater started...");
 
         String repoOwner = "WhiskersOfficial";
         String[] pluginsToUpdate = {
@@ -14,11 +14,11 @@ public class PamukUpdater implements Runnable {
 
         for (String plugins : pluginsToUpdate) {
             if (VersionUtil.isPluginUpToDate(plugins)) {
-                System.out.println("[Pamuk Updater] Plugin " + plugins + " is up to date");
+                System.out.println("Plugin " + plugins + " is up to date");
             } else {
-                System.out.println("[Pamuk Updater] Plugin " + plugins + " is out of date");
-                System.out.println("[Pamuk Updater] Current Version: " + VersionUtil.getCurrentVersion(plugins));
-                System.out.println("[Pamuk Updater] Latest Version: " + VersionUtil.getLatestVersion(plugins));
+                System.out.println("Plugin " + plugins + " is out of date");
+                System.out.println("Current Version: " + VersionUtil.getCurrentVersion(plugins));
+                System.out.println("Latest Version: " + VersionUtil.getLatestVersion(plugins));
             }
         }
     }
