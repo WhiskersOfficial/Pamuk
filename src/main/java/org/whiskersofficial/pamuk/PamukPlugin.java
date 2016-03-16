@@ -10,6 +10,7 @@ public class PamukPlugin extends Whisker {
     private static Configuration config;
 
     public static final String whiskerVersion = "1.0";
+    public static final String whiskerName = "Pamuk";
 
     @Override
     public void onEnable() {
