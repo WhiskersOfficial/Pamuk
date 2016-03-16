@@ -17,10 +17,9 @@ public class VersionUtil {
                     "WhiskersOfficial/" + pluginName + "/releases");
 
             Gson gson = new Gson();
-
             JsonArray releases = gson.fromJson(releasesJSON, JsonArray.class);
 
-            if (releases.size() < 0) {
+            if (releases.size() < 1) {
                 System.out.println("[Pamuk VersionUtil] Plugin " + pluginName + " doesn't have a GitHub repo, or There is something wrong with the GitHub API.");
                 return Version.valueOf("0.0.0");
             } else {
