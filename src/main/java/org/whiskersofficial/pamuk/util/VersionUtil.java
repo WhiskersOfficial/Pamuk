@@ -17,11 +17,18 @@ public class VersionUtil {
                     "WhiskersOfficial/" + pluginName + "/releases");
 
             Gson gson = new Gson();
+
             JsonArray releases = gson.fromJson(releasesJSON, JsonArray.class);
-            return Version.valueOf(((JsonObject) releases.get(0))
-                    .get("tag_name")
-                    .toString()
-                    .replace("\"", ""));
+
+            if (releases.size() < 0) {
+                System.out.println("[Pamuk VersionUtil] Plugin " + pluginName + " doesn't have a GitHub repo, or There is something wrong with the GitHub API.");
+                return Version.valueOf("0.0.0");
+            } else {
+                return Version.valueOf(((JsonObject) releases.get(0))
+                        .get("tag_name")
+                        .toString()
+                        .replace("\"", ""));
+            }
         }
     }
 
