@@ -1,6 +1,6 @@
 name: Pamuk
 description: The base plugin to run whiskers.
-version: 1.0
+version: 1.0.0
 
 authors: [Schaffer79, Admicos]
 website: http://pamuk.whiskersofficial.org/
