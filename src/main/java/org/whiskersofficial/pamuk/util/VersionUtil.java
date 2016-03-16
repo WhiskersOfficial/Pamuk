@@ -14,7 +14,7 @@ public class VersionUtil {
             return Version.valueOf("0.0.0");
         } else {
             String releasesJSON = HTTPUtils.getRequest("https://api.github.com/repos/" +
-                    "WhiskersOfficial/" + pluginName + "releases");
+                    "WhiskersOfficial/" + pluginName + "/releases");
 
             Gson gson = new Gson();
             JsonArray releases = gson.fromJson(releasesJSON, JsonArray.class);
