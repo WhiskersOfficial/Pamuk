@@ -1,5 +1,6 @@
 package org.whiskersofficial.pamuk;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.whiskersofficial.pamuk.threads.PamukUpdater;
 import org.whiskersofficial.pamuk.util.Configuration;
@@ -18,8 +19,8 @@ public class PamukPlugin extends JavaPlugin {
         api = new Pamuk(this);
         config = new Configuration(this, "config.yml", true);
 
-        Thread updaterThread = new Thread(new PamukUpdater(), "Pamuk-Updater");
-        updaterThread.run();
+        Bukkit.getScheduler().scheduleSyncDelayedTask(this, new PamukUpdater(), 100L);
+
     }
 
     @Override
