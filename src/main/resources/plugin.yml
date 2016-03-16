@@ -2,4 +2,4 @@ name: Pamuk
 description: The base plugin to run whiskers.
 version: 1.0.0
 author: Whiskers
-main: org.whiskersofficial.pamuk.Pamuk
+main: org.whiskersofficial.pamuk.PamukPlugin
