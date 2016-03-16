@@ -25,7 +25,7 @@ public class VersionUtil {
             return Version.valueOf("0.0.0");
         } else {
             String releasesJSON = HTTPUtils.getRequest("https://api.github.com/repos/" +
-                    githubUserHostingThePluginRepo + "/" + pluginName + "releases");
+                    githubUserHostingThePluginRepo + "/" + pluginName + "/releases");
 
             Gson gson = new Gson();
             JsonArray releases = gson.fromJson(releasesJSON, JsonArray.class);
