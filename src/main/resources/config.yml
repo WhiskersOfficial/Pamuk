@@ -1,0 +1,8 @@
+# All messages are supporting UTF-8 characters and chat colors.
+
+Database:
+  Enabled: false
+  Address: '127.0.0.1:3306'
+  Schema: 'schema'
+  Username: 'root'
+  Password: '123'
