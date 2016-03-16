@@ -6,5 +6,3 @@ He is the official mascot of Whiskers, also the main plugin of the whisker plugi
 
 Pamuk is created to code plugins more easily for The Whiskers.
 
-## How to install
-Run `mvn clean install` after cloning this repo. The jar file will be in `target/Pamuk.jar`
