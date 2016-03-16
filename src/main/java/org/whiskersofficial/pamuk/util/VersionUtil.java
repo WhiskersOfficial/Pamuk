@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 
 public class VersionUtil {
 
@@ -35,6 +36,16 @@ public class VersionUtil {
                     .get("tag_name")
                     .toString()
                     .replace("\"", ""));
+        }
+    }
+
+    public static Version getCurrentVersion(String pluginName) {
+        Plugin plugin = Bukkit.getPluginManager().getPlugin(pluginName);
+
+        if (plugin == null) {
+            return Version.valueOf("0.0.0");
+        } else {
+            return Version.valueOf(plugin.getDescription().getVersion());
         }
     }
 }

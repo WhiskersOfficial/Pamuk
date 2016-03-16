@@ -1,24 +1,24 @@
 package org.whiskersofficial.pamuk.threads;
 
-import com.github.zafarkhaja.semver.Version;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import org.bukkit.Bukkit;
-import org.whiskersofficial.pamuk.util.HTTPUtils;
+import org.whiskersofficial.pamuk.util.VersionUtil;
 
 public class PamukUpdater implements Runnable {
     public void run() {
         System.out.println("[Updater] Updater started...");
 
-        String repoOwner = "Admicos"; //NOTE TO SELF: WhiskersOfficial by default
+        String repoOwner = "WhiskersOfficial";
         String[] pluginsToUpdate = {
-             /* "Pamuk" //NOTE TO SELF: Uncomment after testing */
-                "VKick" //NOTE TO SELF: Remove after testing
+             "Pamuk"
         };
 
         for (String plugins : pluginsToUpdate) {
-
+            if (VersionUtil.isPluginUpToDate(plugins, repoOwner)) {
+                System.out.println("Plugin " + plugins + " is up to date");
+            } else {
+                System.out.println("Plugin " + plugins + " is out of date");
+                System.out.println("Current Version: " + VersionUtil.getCurrentVersion(plugins));
+                System.out.println("Latest Version: "  + VersionUtil.getLatestVersion(plugins, repoOwner));
+            }
         }
     }
 }
