@@ -1,9 +1,9 @@
 package org.whiskersofficial.pamuk;
 
-public interface Whisker {
+import org.bukkit.plugin.java.JavaPlugin;
 
-    String whiskerVersion = "1.0";
+public class Whisker extends JavaPlugin {
 
-    String getWhiskerVersion();
+    public static final String whiskerVersion = "1.0";
 
 }
