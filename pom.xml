@@ -12,7 +12,7 @@
     </properties>
     <!-- Dependencies -->
     <dependencies>
-        <!-- BukkitAPI -->
+        <!-- BukkitAPI 1.9-R0.1 -->
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
@@ -26,6 +26,7 @@
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
+    <!-- Build/Compile -->
     <build>
         <defaultGoal>install clean</defaultGoal>
         <finalName>Pamuk</finalName>
