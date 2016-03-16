@@ -9,23 +9,23 @@ import org.bukkit.plugin.Plugin;
 
 public class VersionUtil {
 
-    public static boolean isPluginUpToDate(String pluginName, String githubUserHostingThePluginRepo) {
+    public static boolean isPluginUpToDate(String pluginName) {
         if (Bukkit.getPluginManager().getPlugin(pluginName) == null) {
             return false;
         } else {
-            Version latest = getLatestVersion(pluginName, githubUserHostingThePluginRepo);
-            Version current =getCurrentVersion(pluginName);
+            Version latest = getLatestVersion(pluginName);
+            Version current = getCurrentVersion(pluginName);
 
             return !latest.greaterThan(current);
         }
     }
 
-    public static Version getLatestVersion(String pluginName, String githubUserHostingThePluginRepo) {
+    public static Version getLatestVersion(String pluginName) {
         if (Bukkit.getPluginManager().getPlugin(pluginName) == null) {
             return Version.valueOf("0.0.0");
         } else {
             String releasesJSON = HTTPUtils.getRequest("https://api.github.com/repos/" +
-                    githubUserHostingThePluginRepo + "/" + pluginName + "releases");
+                    "WhiskersOfficial/" + pluginName + "releases");
 
             Gson gson = new Gson();
             JsonArray releases = gson.fromJson(releasesJSON, JsonArray.class);
