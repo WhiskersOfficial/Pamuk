@@ -4,45 +4,30 @@ import com.github.zafarkhaja.semver.Version;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
+import org.whiskersofficial.pamuk.Whisker;
 
 public class VersionUtil {
 
-    public static boolean isPluginUpToDate(String pluginName) {
-        if (Bukkit.getPluginManager().getPlugin(pluginName) == null) {
-            return false;
-        } else {
-            Version latest = getLatestVersion(pluginName);
-            Version current = getCurrentVersion(pluginName);
+    public static boolean isPluginUpToDate(Whisker plugin) {
+        Version latest = getLatestVersion(plugin);
+        Version current = getCurrentVersion(plugin);
 
-            return !latest.greaterThan(current);
-        }
+        return !latest.greaterThan(current);
     }
 
-    public static Version getLatestVersion(String pluginName) {
-        if (Bukkit.getPluginManager().getPlugin(pluginName) == null) {
-            return Version.valueOf("0.0.0");
-        } else {
-            String releasesJSON = HTTPUtils.getRequest("https://api.github.com/repos/" +
-                    "WhiskersOfficial/" + pluginName + "releases");
+    public static Version getLatestVersion(Whisker plugin) {
+        String releasesJSON = HTTPUtils.getRequest("https://api.github.com/repos/" +
+                "WhiskersOfficial/" + plugin.whiskerName + "releases");
 
-            Gson gson = new Gson();
-            JsonArray releases = gson.fromJson(releasesJSON, JsonArray.class);
-            return Version.valueOf(((JsonObject) releases.get(0))
-                    .get("tag_name")
-                    .toString()
-                    .replace("\"", ""));
-        }
+        Gson gson = new Gson();
+        JsonArray releases = gson.fromJson(releasesJSON, JsonArray.class);
+        return Version.valueOf(((JsonObject) releases.get(0))
+                .get("tag_name")
+                .toString()
+                .replace("\"", ""));
     }
 
-    public static Version getCurrentVersion(String pluginName) {
-        Plugin plugin = Bukkit.getPluginManager().getPlugin(pluginName);
-
-        if (plugin == null) {
-            return Version.valueOf("0.0.0");
-        } else {
-            return Version.valueOf(plugin.getDescription().getVersion());
-        }
+    public static Version getCurrentVersion(Whisker plugin) {
+        return Version.valueOf(plugin.whiskerVersion);
     }
 }
