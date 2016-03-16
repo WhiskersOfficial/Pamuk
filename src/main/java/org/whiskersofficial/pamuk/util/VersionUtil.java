@@ -29,10 +29,20 @@ public class VersionUtil {
 
             Gson gson = new Gson();
             JsonArray releases = gson.fromJson(releasesJSON, JsonArray.class);
-            return Version.valueOf(((JsonObject) releases.get(0))
-                    .get("tag_name")
-                    .toString()
-                    .replace("\"", ""));
+
+            if (releases.size() < 0) {
+                JsonObject releasesObject = ((JsonObject) releases.get(0));
+
+                return Version.valueOf(releasesObject
+                        .get("tag_name")
+                        .toString()
+                        .replace("\"", ""));
+            } else {
+                System.out.println("[Pamuk VersionUtil] There is no GitHub repo for " + pluginName + " or something went wrong with the GitHub API");
+                return Version.valueOf("0.0.0");
+            }
+
+
         }
     }
 
