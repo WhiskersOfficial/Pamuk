@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class HTTPUtils {
 
-    public static String GETRequest(String urlString) {
+    public static String getRequest(String urlString) {
         StringBuilder result = new StringBuilder();
         URL url = null;
         BufferedReader rd = null;
@@ -29,6 +29,7 @@ public class HTTPUtils {
             }
 
             String line;
+            assert rd != null;
             while ((line = rd.readLine()) != null) {
                 result.append(line);
             }
