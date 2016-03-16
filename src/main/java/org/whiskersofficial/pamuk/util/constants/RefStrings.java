@@ -1,4 +1,4 @@
-package org.whiskersofficial.pamuk.util;
+package org.whiskersofficial.pamuk.util.constants;
 
 public class RefStrings {
 
