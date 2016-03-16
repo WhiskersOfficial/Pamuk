@@ -1,8 +1,6 @@
-![Logo](https://avatars3.githubusercontent.com/u/17855120?v=3&s=200)  **Pamuk**
+![Logo](http://i.hizliresim.com/rM3EoB.png)  **Pamuk**
 =====================
 The base plugin to run whiskers.
--------
-
 -------
 He is the official mascot of Whiskers, also the main plugin of the whisker plugins.
 
