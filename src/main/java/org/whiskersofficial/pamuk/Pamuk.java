@@ -1,7 +1,9 @@
 package org.whiskersofficial.pamuk;
 
+import com.github.zafarkhaja.semver.Version;
 import org.bukkit.Bukkit;
 import org.whiskersofficial.pamuk.util.Utils;
+import org.whiskersofficial.pamuk.util.VersionUtil;
 
 public class Pamuk {
 
@@ -17,6 +19,17 @@ public class Pamuk {
 
     public static String color(String message) {
         return Utils.color(message);
+    }
+
+    public static boolean isPluginUpToDate(String pluginName) {
+        if (Bukkit.getPluginManager().getPlugin(pluginName) == null) {
+            return false;
+        } else {
+            Version latest = VersionUtil.getLatestVersion(pluginName);
+            Version current = VersionUtil.getCurrentVersion(pluginName);
+
+            return !latest.greaterThan(current);
+        }
     }
 
     public PamukPlugin getPlugin() {

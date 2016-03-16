@@ -1,6 +1,6 @@
 package org.whiskersofficial.pamuk.threads;
 
-import org.whiskersofficial.pamuk.util.VersionUtil;
+import org.whiskersofficial.pamuk.Pamuk;
 
 public class PamukUpdater implements Runnable {
 
@@ -12,13 +12,9 @@ public class PamukUpdater implements Runnable {
                 "Pamuk"
         };
 
-        for (String plugins : pluginsToUpdate) {
-            if (VersionUtil.isPluginUpToDate(plugins)) {
-                System.out.println("[Pamuk Updater] Plugin " + plugins + " is up to date");
-            } else {
-                System.out.println("[Pamuk Updater] Plugin " + plugins + " is out of date");
-                System.out.println("[Pamuk Updater] Current Version: " + VersionUtil.getCurrentVersion(plugins));
-                System.out.println("[Pamuk Updater] Latest Version: " + VersionUtil.getLatestVersion(plugins));
+        for (String plugin : pluginsToUpdate) {
+            if (!Pamuk.isPluginUpToDate(plugin)) {
+                System.out.println("[Pamuk] Grrr, " + plugin + " is out of date");
             }
         }
     }

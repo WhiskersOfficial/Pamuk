@@ -9,17 +9,6 @@ import org.bukkit.plugin.Plugin;
 
 public class VersionUtil {
 
-    public static boolean isPluginUpToDate(String pluginName) {
-        if (Bukkit.getPluginManager().getPlugin(pluginName) == null) {
-            return false;
-        } else {
-            Version latest = getLatestVersion(pluginName);
-            Version current = getCurrentVersion(pluginName);
-
-            return !latest.greaterThan(current);
-        }
-    }
-
     public static Version getLatestVersion(String pluginName) {
         if (Bukkit.getPluginManager().getPlugin(pluginName) == null) {
             return Version.valueOf("0.0.0");
