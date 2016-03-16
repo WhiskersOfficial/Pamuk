@@ -14,10 +14,7 @@ public class VersionUtil {
             return false;
         } else {
             Version latest = getLatestVersion(pluginName, githubUserHostingThePluginRepo);
-            Version current = Version.valueOf(Bukkit.getPluginManager()
-                    .getPlugin(pluginName)
-                    .getDescription()
-                    .getVersion());
+            Version current =getCurrentVersion(pluginName);
 
             return !latest.greaterThan(current);
         }
