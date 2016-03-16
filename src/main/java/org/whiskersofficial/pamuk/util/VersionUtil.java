@@ -27,7 +27,7 @@ public class VersionUtil {
         if (Bukkit.getPluginManager().getPlugin(pluginName) == null) {
             return Version.valueOf("0.0.0");
         } else {
-            String releasesJSON = HTTPUtils.GETRequest("https://api.github.com/repos/" +
+            String releasesJSON = HTTPUtils.getRequest("https://api.github.com/repos/" +
                     githubUserHostingThePluginRepo + "/" + pluginName + "releases");
 
             Gson gson = new Gson();
