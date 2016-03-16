@@ -1,9 +1,10 @@
 package org.whiskersofficial.pamuk;
 
+import org.bukkit.plugin.java.JavaPlugin;
 import org.whiskersofficial.pamuk.threads.PamukUpdater;
 import org.whiskersofficial.pamuk.util.Configuration;
 
-public class PamukPlugin extends Whisker {
+public class PamukPlugin extends JavaPlugin {
 
     private static Pamuk api;
 

@@ -5,12 +5,12 @@ import org.whiskersofficial.pamuk.util.Utils;
 
 public class Pamuk {
 
+    public static final String prefix = "&7[&fPamuk&7] ";
+
     private PamukPlugin plugin;
-    private String prefix;
 
     protected Pamuk(PamukPlugin plugin) {
         this.plugin = plugin;
-        this.prefix = "&7[&fPamuk&7] ";
 
         Bukkit.getConsoleSender().sendMessage(color(prefix + "&bMeow."));
     }
